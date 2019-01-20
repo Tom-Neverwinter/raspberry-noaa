@@ -9,7 +9,7 @@ wget -qr https://www.celestrak.com/NORAD/elements/weather.txt -O "${NOAA_HOME}"/
 grep "NOAA 15" "${NOAA_HOME}"/predict/weather.txt -A 2 > "${NOAA_HOME}"/predict/weather.tle
 grep "NOAA 18" "${NOAA_HOME}"/predict/weather.txt -A 2 >> "${NOAA_HOME}"/predict/weather.tle
 grep "NOAA 19" "${NOAA_HOME}"/predict/weather.txt -A 2 >> "${NOAA_HOME}"/predict/weather.tle
-grep "METEOR-M 2" /home/pi/weather/predict/weather.txt -A 2 >> /home/pi/weather/predict/weather.tle
+grep "METEOR-M 2" "${NOAA_HOME}"/predict/weather.txt -A 2 >> /home/pi/weather/predict/weather.tle
 
 #Remove all AT jobs
 for i in $(atq | awk '{print $1}');do atrm "$i";done
