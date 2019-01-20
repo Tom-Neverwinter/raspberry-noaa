@@ -3,6 +3,8 @@
 ## debug
 #set -x
 
+
+#there is not noaa file anymore! why is this here!
 . ~/.noaa.conf
 
 wget -qr https://www.celestrak.com/NORAD/elements/weather.txt -O "${NOAA_HOME}"/predict/weather.txt
