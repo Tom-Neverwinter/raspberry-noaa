@@ -25,3 +25,5 @@ for filename in filenames:
 
 #update this for status
 api.update_status(status=argentinaFlag + ' Imagen satelital: ' + sys.argv[1] + '. Elevacion maxima: ' + sys.argv[2] + ' grados. #NOAA #weather #argentinaimagenes #noaasatellite #clima #wxtoimg #raspberrypi #argentina #argentinasat', media_ids=media_ids)
+#English V1
+# api.update_status(status=argentinaFlag + ' satellite Image: ' + sys.argv[1] + '. Max Elevation: ' + sys.argv[2] + ' Degrees. #NOAA #weather #noaasatellite #climate #wxtoimg #raspberrypi', media_ids=media_ids)
