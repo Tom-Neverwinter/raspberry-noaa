@@ -8,10 +8,11 @@ CONSUMER_SECRET = ''
 ACCESS_TOKEN_KEY = ''
 ACCESS_TOKEN_SECRET = ''
 
+# authentication
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
-argentinaFlag = u'\U0001F1E6' + u'\U0001F1F7'
+# argentinaFlag = u'\U0001F1E6' + u'\U0001F1F7'
 
 filenames = []
 for element in sys.argv[3:]:
@@ -22,4 +23,5 @@ for filename in filenames:
   res = api.media_upload(filename)
   media_ids.append(res.media_id)
 
+#update this for status
 api.update_status(status=argentinaFlag + ' Imagen satelital: ' + sys.argv[1] + '. Elevacion maxima: ' + sys.argv[2] + ' grados. #NOAA #weather #argentinaimagenes #noaasatellite #clima #wxtoimg #raspberrypi #argentina #argentinasat', media_ids=media_ids)
