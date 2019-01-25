@@ -3,7 +3,7 @@
 ## debug
 #set -x
 
-. ~/.noaa.conf
+. ~/noaa.conf
 
 wget -qr https://www.celestrak.com/NORAD/elements/weather.txt -O "${NOAA_HOME}"/predict/weather.txt
 grep "NOAA 15" "${NOAA_HOME}"/predict/weather.txt -A 2 > "${NOAA_HOME}"/predict/weather.tle
