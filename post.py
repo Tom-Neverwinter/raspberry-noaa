@@ -28,4 +28,4 @@ for filename in filenames:
   media_ids.append(res.media_id)
 
   # Sample method, used to update a status
-api.update_status(status=argentinaFlag + ' Imagen satelital: ' + sys.argv[1] + '. Elevacion maxima: ' + sys.argv[2] + ' grados. #NOAA #weather #argentinaimagenes #noaasatellite #clima #wxtoimg #raspberrypi #argentina #argentinasat', media_ids=media_ids)
+api.update_status(' Satelite image: ' + sys.argv[1] + '. max elevation: ' + sys.argv[2] + ' Degrees. #NOAA #weather #noaasatellite #climate #wxtoimg #raspberrypi ', media_ids=media_ids)
