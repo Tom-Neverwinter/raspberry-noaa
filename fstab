@@ -1,1 +1,2 @@
+#tmpfs add for noaa images/audio
 tmpfs                   /var/ramfs      tmpfs noauto,nofail,nodev,nosuid,size=100M 0 0
