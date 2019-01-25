@@ -16,8 +16,6 @@ auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
 # Creation of the actual interface, using authentication
 api = tweepy.API(auth)
 
-#argentinaFlag = u'\U0001F1E6' + u'\U0001F1F7'
-
 filenames = []
 for element in sys.argv[3:]:
   filenames.append(element)
