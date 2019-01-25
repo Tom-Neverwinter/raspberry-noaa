@@ -1,4 +1,5 @@
 #!/usr/bin/env python2
+# twitterwin.py by Alex Eames https://raspi.tv/?p=5281   
 # -*- coding: utf-8 -*-
 import sys
 import tweepy
