@@ -5,14 +5,14 @@
 
 . ~/.noaa.conf
 
-PREDICTION_START=$(/usr/bin/predict -t "${NOAA_HOME}"/predict/weather.tle -p "${1}" | head -1)
-PREDICTION_END=$(/usr/bin/predict -t "${NOAA_HOME}"/predict/weather.tle -p "${1}" | tail -1)
+PREDICTION_START=$(/usr/bin/predict -t /home/pi/weather/predict/weather.tle -p "${1}" | head -1)
+PREDICTION_END=$(/usr/bin/predict -t /home/pi/weather/predict/weather.tle -p "${1}" | tail -1)
 
 
 var2=$(echo "${PREDICTION_END}" | cut -d " " -f 1)
 var21=`echo $PREDICTION_END | cut -d " " -f 1`
 
-MAXELEV=$(/usr/bin/predict -t "${NOAA_HOME}"/predict/weather.tle -p "${1}" | awk -v max=0 '{if($5>max){max=$5}}END{print max}')
+MAXELEV=$(/usr/bin/predict -t /home/pi/weather/predict/weather.tle -p "${1}" | awk -v max=0 '{if($5>max){max=$5}}END{print max}')
 
 while [ "$(date --date="@${var2}" +%D)" = "$(date +%D)" ]; do
 	START_TIME=$(echo "$PREDICTION_START" | cut -d " " -f 3-4)
@@ -26,13 +26,13 @@ while [ "$(date --date="@${var2}" +%D)" = "$(date +%D)" ]; do
 	then
 		SATNAME=$(echo "$1" | sed "s/ //g")
 		echo ${SATNAME} "${OUTDATE}" "$MAXELEV"
-		echo "${NOAA_HOME}/receive.sh \"${1}\" $2 ${SATNAME}${OUTDATE} "${NOAA_HOME}"/predict/weather.tle \
+		echo "${NOAA_HOME}/receive.sh \"${1}\" $2 ${SATNAME}${OUTDATE} /home/pi/weather/predict/weather.tle \
 ${var1} ${TIMER} ${MAXELEV}" | at "$(date --date="TZ=\"UTC\" ${START_TIME}" +"%H:%M %D")"
 	fi
 	NEXTPREDICT=$(expr "${var2}" + 60)
-	PREDICTION_START=$(/usr/bin/predict -t "${NOAA_HOME}"/predict/weather.tle -p "${1}" "${NEXTPREDICT}" | head -1)
-	PREDICTION_END=$(/usr/bin/predict -t "${NOAA_HOME}"/predict/weather.tle -p "${1}"  "${NEXTPREDICT}" | tail -1)
-	MAXELEV=$(/usr/bin/predict -t "${NOAA_HOME}"/predict/weather.tle -p "${1}" "${NEXTPREDICT}" | awk -v max=0 '{if($5>max){max=$5}}END{print max}')
+	PREDICTION_START=$(/usr/bin/predict -t /home/pi/weather/predict/weather.tle -p "${1}" "${NEXTPREDICT}" | head -1)
+	PREDICTION_END=$(/usr/bin/predict -t /home/pi/weather/predict/weather.tle -p "${1}"  "${NEXTPREDICT}" | tail -1)
+	MAXELEV=$(/usr/bin/predict -t /home/pi/weather/predict/weather.tle -p "${1}" "${NEXTPREDICT}" | awk -v max=0 '{if($5>max){max=$5}}END{print max}')
 	var2=$(echo "${PREDICTION_END}" | cut -d " " -f 1)
 done
 
