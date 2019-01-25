@@ -2,15 +2,15 @@
 Most of the code and setup stolen from: [Instructables](https://www.instructables.com/id/Raspberry-Pi-NOAA-Weather-Satellite-Receiver/)
 
 ### New Features!
-  - Nginx webserver to show images.
+  - Nginx webserver to show images. (I need to get this running)
   - Timestamp and satellite name over every image.
   - WXToIMG configured to create several images (HVC,HVCT,MCIR, etc).
-  - Pictures are posted to Twitter. See more at [argentinasat twitter account](https://twitter.com/argentinasat).
-  - [Wiki](https://github.com/reynico/raspberry-noaa/wiki) is updated!
-  - Audio files are stored on a RAMFS partition. Happen to had some glitches on image reception
+  - Pictures are posted to Twitter. See more at [twitter account](https://twitter.com/).
+  - [Wiki] 
+  - Audio files are stored on a RAMFS partition. Happen to have some glitches on image reception (more work)
 
 ### Manual work
-  - See [Wiki's install and config page](https://github.com/reynico/raspberry-noaa/wiki/Initial-installation-and-configuration) for information
+  - See [Wiki's install and config page] for information
 
 ### Important notes
   - I tried to run this on a Raspberry PI Zero Wifi, no luck. Seems like it's too much load for the CPU. Running on a Raspberry PI 2+ is ok. See [Wiki's hardware notes page](https://github.com/reynico/raspberry-noaa/wiki/Hardware-notes).
